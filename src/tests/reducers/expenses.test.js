@@ -1,5 +1,6 @@
 import expensesReducer from '../../reducers/expenses';
 import expenses from '../fixtures/expenses';
+import { startRemoveExpense } from '../../actions/expenses';
 
 test('should set default state', () => {
     const state = expensesReducer(undefined, {type: '@@INIT'});
@@ -23,6 +24,8 @@ test('should not remove expense if id not found', () => {
     const state = expensesReducer(expenses, action);
     expect(state).toEqual(expenses);
 });
+
+
 
 test('should add expense', () => {
     const expense = {
